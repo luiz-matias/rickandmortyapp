@@ -1,0 +1,2 @@
+# rickandmortyapp
+Flutter development project
