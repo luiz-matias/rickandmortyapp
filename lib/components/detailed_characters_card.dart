@@ -31,7 +31,7 @@ class DetailedCharacterCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 20.0, bottom: 40.0),
+                    padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
                     child: Text(
                       "${detailedCharacter.name.toUpperCase()}",
                       textAlign: TextAlign.center,
@@ -57,6 +57,17 @@ class DetailedCharacterCard extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 20.0),
                     child: Text(
                       "Last Known Location - ${detailedCharacter.location.name}",
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        color: AppColors.white,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: Text(
+                      "First seen in the ${detailedCharacter.firstSeenIn}º episode",
                       textAlign: TextAlign.start,
                       style: TextStyle(
                         color: AppColors.white,

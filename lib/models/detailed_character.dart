@@ -1,18 +1,18 @@
 class DetailedCharacter {
-  DetailedCharacter({
-    required this.id,
-    required this.name,
-    required this.status,
-    required this.species,
-    required this.type,
-    required this.gender,
-    required this.origin,
-    required this.location,
-    required this.image,
-    required this.episode,
-    required this.url,
-    required this.created,
-  });
+  DetailedCharacter(
+      {required this.id,
+      required this.name,
+      required this.status,
+      required this.species,
+      required this.type,
+      required this.gender,
+      required this.origin,
+      required this.location,
+      required this.image,
+      required this.episode,
+      required this.url,
+      required this.created,
+      required this.firstSeenIn});
   late final int id;
   late final String name;
   late final String status;
@@ -25,6 +25,7 @@ class DetailedCharacter {
   late final List<String> episode;
   late final String url;
   late final String created;
+  late int firstSeenIn = getFirstEpisode();
 
   DetailedCharacter.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -56,6 +57,12 @@ class DetailedCharacter {
     _data['url'] = url;
     _data['created'] = created;
     return _data;
+  }
+
+  int getFirstEpisode() {
+    var firstEpisodeUrl = Uri.parse(this.episode[0]);
+    var episodeId = int.parse(firstEpisodeUrl.pathSegments.last);
+    return episodeId;
   }
 }
 

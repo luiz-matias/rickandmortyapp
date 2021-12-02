@@ -14,11 +14,24 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Future<PaginatedCharacters>? characters;
+  int currentPage = 1;
+  ScrollController scrollController = ScrollController();
 
   @override
   void initState() {
-    characters = Repository.getAllCharacters();
+    characters = Repository.getAllCharacters(currentPage);
+    scrollController.addListener(onScroll);
     super.initState();
+  }
+
+  void onScroll() {
+    if (scrollController.position.pixels ==
+        scrollController.position.maxScrollExtent) {
+      setState(() {
+        currentPage++;
+        characters = Repository.getAllCharacters(currentPage);
+      });
+    }
   }
 
   @override
@@ -31,8 +44,8 @@ class _HomePageState extends State<HomePage> {
           builder: (context, AsyncSnapshot<PaginatedCharacters> snapshot) {
             if (snapshot.hasData) {
               final dataResults = snapshot.data!.results;
-
               return ListView.builder(
+                controller: scrollController,
                 padding: EdgeInsets.symmetric(vertical: 7.5),
                 itemBuilder: (context, index) {
                   return CharactersCard(
