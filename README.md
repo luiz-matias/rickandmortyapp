@@ -10,6 +10,7 @@ fidelidade para facilitar o desenvolvimento.
 Contudo, se preferir pode seguir as diretrizes de UI e UX queachar mais pertinente.
 
 REQUISITOS FUNCIONAIS
+
 Apesar do escopo reduzido, este projeto servirá como base para o crescimento do produto.
 Atualmente, é esperado que usuários e usuárias deste aplicativo consigam:
 - fazer o scroll da lista de personagens. Os cards de cada personagem devem conter nome,
