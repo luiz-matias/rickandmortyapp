@@ -24,4 +24,9 @@ abstract class Repository {
     var response = await _dio.get("/episode/$episodeId");
     return Episode.fromJson(response.data);
   }
+
+  static Future<Episode> filterCharacter(String nameValue) async {
+    var response = await _dio.get("/episode/?name=$nameValue");
+    return Episode.fromJson(response.data);
+  }
 }

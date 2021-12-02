@@ -5,7 +5,7 @@ import 'package:kode_start_rick_and_morty/pages/home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-  runApp(RickAndMortyApp());
+  runApp(const RickAndMortyApp());
 }
 
 class RickAndMortyApp extends StatelessWidget {
@@ -20,7 +20,7 @@ class RickAndMortyApp extends StatelessWidget {
           case '/':
             return MaterialPageRoute(
               settings: settings,
-              builder: (context) => HomePage(),
+              builder: (context) => const HomePage(),
             );
           case '/details':
             int characterId = settings.arguments as int;

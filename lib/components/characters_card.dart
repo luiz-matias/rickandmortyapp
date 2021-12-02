@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kode_start_rick_and_morty/models/detailed_character.dart';
 import 'package:kode_start_rick_and_morty/models/paginated_characters.dart';
 import 'package:kode_start_rick_and_morty/theme/app_colors.dart';
 
@@ -13,13 +12,13 @@ class CharactersCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 5, vertical: 4),
+      margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 4),
       width: MediaQuery.of(context).size.width,
       child: Card(
         color: AppColors.primaryColorLight,
         clipBehavior: Clip.antiAlias,
-        margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-        shape: RoundedRectangleBorder(
+        margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: InkWell(
@@ -34,12 +33,13 @@ class CharactersCard extends StatelessWidget {
                   character.image,
                   height: 150.0,
                   fit: BoxFit.fitWidth,
+                  alignment: Alignment.center,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 10, bottom: 10),
                 child: Text(
-                  "${character.name.toUpperCase()}",
+                  "${character.name.toUpperCase()} ",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: AppColors.white,

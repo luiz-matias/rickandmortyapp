@@ -17,6 +17,9 @@ class _HomePageState extends State<HomePage> {
   int currentPage = 1;
   ScrollController scrollController = ScrollController();
 
+//tentei implementar a lista infita, mas não consegui.
+// essa foi a forma que encontrei de consumir as outras pg da API
+
   @override
   void initState() {
     characters = Repository.getAllCharacters(currentPage);
@@ -46,7 +49,7 @@ class _HomePageState extends State<HomePage> {
               final dataResults = snapshot.data!.results;
               return ListView.builder(
                 controller: scrollController,
-                padding: EdgeInsets.symmetric(vertical: 7.5),
+                padding: const EdgeInsets.symmetric(vertical: 7.5),
                 itemBuilder: (context, index) {
                   return CharactersCard(
                     character: dataResults[index],
@@ -68,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               );
             } else {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             }

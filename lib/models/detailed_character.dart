@@ -58,9 +58,10 @@ class DetailedCharacter {
     _data['created'] = created;
     return _data;
   }
+//gets the first episode of the List and returns the endpoint wich is the episode ID
 
   int getFirstEpisode() {
-    var firstEpisodeUrl = Uri.parse(this.episode[0]);
+    var firstEpisodeUrl = Uri.parse(episode[0]);
     var episodeId = int.parse(firstEpisodeUrl.pathSegments.last);
     return episodeId;
   }

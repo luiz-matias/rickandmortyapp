@@ -5,7 +5,6 @@ import 'package:kode_start_rick_and_morty/components/app_bar_components.dart';
 import 'package:kode_start_rick_and_morty/components/detailed_characters_card.dart';
 import 'package:kode_start_rick_and_morty/data/respository.dart';
 import 'package:kode_start_rick_and_morty/models/detailed_character.dart';
-import 'package:kode_start_rick_and_morty/models/detailed_episode.dart';
 import 'package:kode_start_rick_and_morty/theme/app_colors.dart';
 
 class DetailsPage extends StatefulWidget {
@@ -19,7 +18,6 @@ class DetailsPage extends StatefulWidget {
 
 class _DetailsPageState extends State<DetailsPage> {
   Future<DetailedCharacter>? detailedCharacter;
-  Future<Episode>? episode;
 
   @override
   initState() {
@@ -50,7 +48,7 @@ class _DetailsPageState extends State<DetailsPage> {
               ),
             );
           } else {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }

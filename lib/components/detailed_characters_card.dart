@@ -12,13 +12,13 @@ class DetailedCharacterCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 10.0),
+      margin: const EdgeInsets.only(top: 10.0),
       width: MediaQuery.of(context).size.width,
       child: Card(
         color: AppColors.primaryColorLight,
         clipBehavior: Clip.antiAlias,
-        margin: EdgeInsets.symmetric(horizontal: 40, vertical: 7.5),
-        shape: RoundedRectangleBorder(
+        margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 7.5),
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: Padding(
@@ -33,7 +33,7 @@ class DetailedCharacterCard extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
                     child: Text(
-                      "${detailedCharacter.name.toUpperCase()}",
+                      detailedCharacter.name.toUpperCase(),
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: AppColors.white,
@@ -45,11 +45,22 @@ class DetailedCharacterCard extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 20.0),
                     child: Text(
-                      "${detailedCharacter.status} - (${detailedCharacter.species}) ",
+                      "${detailedCharacter.status} - ${detailedCharacter.species}/ ${detailedCharacter.gender} ",
                       textAlign: TextAlign.start,
                       style: TextStyle(
                         color: AppColors.white,
-                        fontSize: 20,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: Text(
+                      "Origin- ${detailedCharacter.origin.name} ",
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        color: AppColors.white,
+                        fontSize: 14.5,
                       ),
                     ),
                   ),
@@ -60,12 +71,12 @@ class DetailedCharacterCard extends StatelessWidget {
                       textAlign: TextAlign.start,
                       style: TextStyle(
                         color: AppColors.white,
-                        fontSize: 16,
+                        fontSize: 14.5,
                       ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
+                    padding: const EdgeInsets.only(left: 20.0, bottom: 10.0),
                     child: Text(
                       "First seen in the ${detailedCharacter.firstSeenIn}º episode",
                       textAlign: TextAlign.start,

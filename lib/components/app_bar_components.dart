@@ -4,6 +4,8 @@ import '../theme/app_colors.dart';
 
 PreferredSizeWidget appBarComponent(BuildContext context,
     {bool isSecondPage = false}) {
+  Icon customIcon = const Icon(Icons.search);
+
   return AppBar(
     toolbarHeight: 135,
     backgroundColor: AppColors.appBarColor,
@@ -11,9 +13,22 @@ PreferredSizeWidget appBarComponent(BuildContext context,
     //After
     leading: Container(),
     //After 2 Page
+    //starting the implementation of the search bar
+    actions: [
+      IconButton(
+        onPressed: () {
+          if (customIcon.icon == Icons.search) {
+            customIcon = const Icon(Icons.cancel);
+          } else {
+            customIcon = const Icon(Icons.search);
+          }
+        },
+        icon: const Icon(Icons.search),
+      )
+    ],
     flexibleSpace: SafeArea(
       child: Padding(
-        padding: EdgeInsets.only(
+        padding: const EdgeInsets.only(
           right: 15,
           left: 15,
           top: 10,
@@ -35,7 +50,7 @@ PreferredSizeWidget appBarComponent(BuildContext context,
                 children: [
                   Image.asset("assets/images/logo.png"),
                   Padding(
-                    padding: EdgeInsets.only(top: 10),
+                    padding: const EdgeInsets.only(top: 10),
                     child: Text(
                       "RICK AND MORTY APP",
                       style: TextStyle(
